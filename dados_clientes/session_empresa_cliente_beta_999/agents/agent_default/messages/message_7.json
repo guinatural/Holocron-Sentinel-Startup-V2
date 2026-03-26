@@ -1,0 +1,14 @@
+{
+  "message": {
+    "role": "assistant",
+    "content": [
+      {
+        "text": "Relatório Executivo de Segurança - Empresa Beta\n\nEscopo da Auditoria: Buckets S3\nStatus Geral: 🟢 Conformidade Detectada\n\nPrincipais Conclusões:\n- Nenhuma exposição pública de dados identificada\n- Configurações de segurança robustas implementadas\n- Bloqueio de acesso público em todos os buckets\n- Sem riscos imediatos de vazamento de informações\n\nRecomendações Preventivas:\n1. Manter política atual de segurança\n2. Realizar auditorias trimestrais\n3. Atualizar credenciais periodicamente\n\nResultado Final: Não foram identificados problemas críticos de cibersegurança nos recursos auditados.\n\nAtenciosamente,\nHolocron Sentinel V2.0\nAuditor de Segurança Certificado"
+      }
+    ]
+  },
+  "message_id": 7,
+  "redact_message": null,
+  "created_at": "2026-03-26T16:19:07.966022+00:00",
+  "updated_at": "2026-03-26T16:19:07.966022+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "message": {
+    "role": "assistant",
+    "content": [
+      {
+        "text": "Vou realizar uma varredura profunda nos buckets S3 para identificar as vulnerabilidades específicas."
+      },
+      {
+        "toolUse": {
+          "toolUseId": "tooluse_6I4UlGriH6fmkBkjGe8Y4z",
+          "name": "auditar_permissoes_s3",
+          "input": {}
+        }
+      }
+    ]
+  },
+  "message_id": 4,
+  "redact_message": null,
+  "created_at": "2026-03-26T16:18:50.424120+00:00",
+  "updated_at": "2026-03-26T16:18:50.424120+00:00"
+}

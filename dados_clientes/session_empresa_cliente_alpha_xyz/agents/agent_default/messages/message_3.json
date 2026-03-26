@@ -1,0 +1,14 @@
+{
+  "message": {
+    "role": "user",
+    "content": [
+      {
+        "text": "Alerta de auditoria: Encontramos 5 buckets S3 expostos na conta 1111-2222 da nossa empresa."
+      }
+    ]
+  },
+  "message_id": 3,
+  "redact_message": null,
+  "created_at": "2026-03-26T16:18:47.731484+00:00",
+  "updated_at": "2026-03-26T16:18:47.731484+00:00"
+}

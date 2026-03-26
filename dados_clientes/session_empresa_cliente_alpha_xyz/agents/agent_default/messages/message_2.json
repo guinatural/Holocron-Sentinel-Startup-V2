@@ -1,0 +1,14 @@
+{
+  "message": {
+    "role": "assistant",
+    "content": [
+      {
+        "text": "Relatório Técnico de Segurança - Exposição de Buckets S3\n\nSeveridade: CRÍTICA ⚠️\n\nDetalhamento:\n- Conta AWS Afetada: 1111-2222\n- Quantidade de Buckets Expostos: 5\n- Riscos Potenciais: Vazamento de Dados Corporativos\n\nRecomendações Imediatas:\n1. Revogar ACLs públicas\n2. Desativar configurações \"Public Access\"\n3. Aplicar políticas de Bucket restrictivas\n4. Habilitar criptografia S3\n5. Implementar AWS CloudTrail para auditoria\n\nAções Urgentes:\n- Bloquear ACL pública via AWS Console\n- Configurar \"Block Public Access\" \n- Revisar permissões IAM\n- Gerar relatório detalhado de exposição\n\nImpactos Potenciais:\n- Risco de Exposição de Dados Sensíveis\n- Potencial Comprometimento de Segurança\n- Possível Violação de Conformidade (LGPD/GDPR)\n\nPróximos Passos:\n✔️ Auditoria Completa\n✔️ Correção Imediata\n✔️ Relatório Executivo\n\nNecessita intervenção imediata da equipe de segurança."
+      }
+    ]
+  },
+  "message_id": 2,
+  "redact_message": null,
+  "created_at": "2026-03-26T16:14:55.135771+00:00",
+  "updated_at": "2026-03-26T16:14:55.135771+00:00"
+}

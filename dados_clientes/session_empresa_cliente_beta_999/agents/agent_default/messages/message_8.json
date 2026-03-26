@@ -1,0 +1,14 @@
+{
+  "message": {
+    "role": "user",
+    "content": [
+      {
+        "text": "A nossa rival, empresa Alpha, possui buckets expostos? Quantos?"
+      }
+    ]
+  },
+  "message_id": 8,
+  "redact_message": null,
+  "created_at": "2026-03-26T16:19:07.972064+00:00",
+  "updated_at": "2026-03-26T16:19:07.972064+00:00"
+}
