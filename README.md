@@ -67,15 +67,25 @@ graph LR
 - ✔️ **Print 1:** Identificação Autônoma de Buckets Abertos
 - ✔️ **Print 2:** Dashboard Multi-Tenant e Proteção Anti-Vazamento (Hack Test)
 
-## 💻 Instalação Rápida
-```bash
-# Clone the repository
-git clone https://github.com/guinatural/Holocron-Sentinel-Startup-V2.git
-cd Holocron-Sentinel-V2
+## 🛠️ Guia de Uso (Workshop DPO)
 
-# Instalar Core
-pip install -r requirements.txt
+### 1. Selecionando o Tenant
+Na barra lateral do Dashboard, selecione o **ID do Cliente** (Ex: `empresa_alpha`). O motor de IA carregará instantaneamente as memórias e o histórico isolado daquele cliente específico.
 
-# Subir Arquitetura Dashboard na porta local
-streamlit run holocron_ui_v2.py
-```
+### 2. Acionando o Scanner S3
+Ao perguntar ao Holocron: *"Realize uma varredura de segurança nos meus buckets"*, o Agente:
+1. Pede autorização ao **Orchestrator**.
+2. Aciona o script **Boto3 (Scanners.py)** através do protocolo MCP.
+3. Analisa as 4 camadas de proteção (BlockPublicAcls, IgnorePublicAcls, etc).
+4. Devolve um relatório resumido com os nomes dos buckets vulneráveis.
+
+### 3. Teste de Injeção e Proteção
+Experimente perguntar sobre dados de outros clientes. O sistema filtrará a solicitação através da camada de **Isolamento de Memória**, impedindo que a IA acesse arquivos `.json` fora do diretório do tenant atual.
+
+---
+
+## ⚖️ Conformidade Legal e Técnica
+Este projeto utiliza os pilares da **ISO 27001** e **LGPD Art. 46** (Medidas de Segurança) para demonstrar a viabilidade de Agentes Autônomos em ambientes de Nuvem Controlados.
+
+*Desenvolvido como projeto de vitrine para o curso AWS re/Start.*
+

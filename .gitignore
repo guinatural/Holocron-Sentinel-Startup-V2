@@ -1,0 +1,23 @@
+# Pastas de Ambiente Virtual (Ignorar para o Git)
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# Configurações de Editor
+.vscode/
+.idea/
+.cursor/
+
+# Arquivos de Dados e Memória (Conformidade LGPD) 
+# Não queremos subir dados de clientes no Git Público!
+dados_clientes/
+*.json
+*.log
+
+# Variáveis Secretas
+.env
+.aws/
+credentials

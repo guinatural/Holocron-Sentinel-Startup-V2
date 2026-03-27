@@ -1,0 +1,9 @@
+# Bibliotecas Core para o Holocron V2
+boto3==1.34.1
+streamlit==1.32.2
+strands-agents==0.1.25
+requests==2.31.0
+python-dotenv==1.0.1
+opentelemetry-api==1.23.0
+opentelemetry-sdk==1.23.0
+mcp==0.1.0
