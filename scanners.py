@@ -11,6 +11,14 @@ from strands.tools import tool
     description="Inicia uma varredura profunda (Scanner) em todos os buckets S3 da conta AWS do cliente buscando por acessos públicos perigosos. Retorna a lista de buckets não conformes com a LGPD."
 )
 def auditar_permissoes_s3() -> str:
+    """
+    Ferramenta MCP (Model Context Protocol) para Scanner Boto3 S3
+    
+    Operando em nível "Somente-Leitura" (Read-Only) por segurança arquitetural,
+    esta função mapeia a infraestrutura em tempo de execução para alimentar
+    o raciocínio do modelo fundacional de IA (Bedrock/Claude). Focada na 
+    detecção de conformidade Preventiva para a LGPD e regulamentações corporativas.
+    """
     print("\n[Scanner Boto3] Conectando à infraestrutura AWS S3 do cliente... 🔍")
     s3 = boto3.client('s3')
     

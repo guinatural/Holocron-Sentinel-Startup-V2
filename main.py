@@ -10,6 +10,14 @@ import scanners  # 0. Importar Nossas Ferramentas (Scanners Boto3)
 logging.basicConfig(level=logging.ERROR)
 
 class HolocronSentinelCore:
+    """
+    Núcleo Arquitetural do Holocron Sentinel V2 (Modelo SaaS)
+    
+    Esta classe orquestra o Agente usando o framework AWS AgentCore (Strands). Ela é
+    responsável por injetar 'Ferramentas de Nuvem' (Scanners MCP) no raciocínio do modelo
+    Claude 3.5 e prover o isolamento rigoroso de memória (Multi-Tenant) através do
+    FileSessionManager, garantindo proteção contra injeções de contexto (LGPD).
+    """
     def __init__(self, tenant_id: str):
         self.tenant_id = tenant_id  # Identificação Única da Empresa (Isolamento Multi-tenant)
         self.pasta_memoria = os.path.join(os.getcwd(), "dados_clientes")

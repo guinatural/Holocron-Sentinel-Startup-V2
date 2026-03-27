@@ -1,0 +1,14 @@
+{
+  "message": {
+    "role": "user",
+    "content": [
+      {
+        "text": "quero sim muito obrigado"
+      }
+    ]
+  },
+  "message_id": 9,
+  "redact_message": null,
+  "created_at": "2026-03-26T17:09:42.930598+00:00",
+  "updated_at": "2026-03-26T17:09:42.930598+00:00"
+}

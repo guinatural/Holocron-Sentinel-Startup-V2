@@ -1,0 +1,14 @@
+{
+  "message": {
+    "role": "assistant",
+    "content": [
+      {
+        "text": "🔒 Relatório de Segurança Holocron Sentinel V2.0\n\n✨ Resultados da Auditoria:\n- Status Geral: SEGURO\n- Buckets Verificados: Todos com proteções ativas\n- Configuração: Block Public Access habilitado\n\n🛡️ Ações Preventivas Confirmadas:\n1. Bloqueio de acesso público\n2. Configurações de segurança robustas\n3. Proteção contra exposição não autorizada\n\n💡 Recomendações Adicionais:\n- Manter atualizações regulares\n- Realizar auditorias trimestrais\n- Implementar criptografia adicional\n\nSua infraestrutura S3 está protegida! Posso auxiliar em mais alguma coisa?"
+      }
+    ]
+  },
+  "message_id": 12,
+  "redact_message": null,
+  "created_at": "2026-03-26T17:09:51.502601+00:00",
+  "updated_at": "2026-03-26T17:09:51.502601+00:00"
+}
