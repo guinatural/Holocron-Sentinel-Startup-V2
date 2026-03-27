@@ -11,33 +11,48 @@ Sua principal inovação é utilizar a inteligência do **Claude 3.5**, equipand
 
 ---
 
-## 🏗️ Arquitetura do Sistema
+## 🏗️ Arquitetura de Produção (AWS Native)
 
-O diagrama abaixo detalha o fluxo de decisão assíncrono projetado:
+O diagrama abaixo reflete a topologia SaaS projetada para implantação em ambiente corporativo da AWS:
 
 ```mermaid
-graph TD;
-    Admin["DPO / Security Admin"] -->|"Interface: Prompt de Auditoria"| UI("Streamlit Dashboard V2");
-    
-    subgraph "⚙️ Controlador AgentCore"
-        UI -->|"Autenticação de Inquilino"| Core{"Holocron Sentinel Core"};
-        Core -->|"Silo de Empresa A"| MemA[("FileSessionManager: Tenant A")];
-        Core -->|"Silo de Empresa B"| MemB[("FileSessionManager: Tenant B")];
-    end
-    
-    subgraph "🤖 IA Governamental e Raciocínio"
-        Core <-->|"Raciocínio & Decisão Logica"| Bedrock["AWS Bedrock: Claude 3.5"];
-        Bedrock -.->|"Acionamento Autônomo de Ferramenta"| MCP["Scanners Boto3 API"];
-    end
-    
-    subgraph "☁️ AWS Infrastrutura do Cliente"
-        MCP -->|"Block Public Access Auditing"| AWS_S3[("Amazon S3 (Buckets)")];
-        MCP -->|"Role & Policy Auditing"| AWS_IAM["Amazon IAM"];
+graph LR
+    User((DPO / Auditor)) -->|Autenticação JWT| Cognito[Amazon Cognito<br/>IDP / OAuth 2.0]
+    Cognito -->|Token Validado| API[Amazon API Gateway]
+
+    subgraph "☁️ AWS Cloud VPC (Ambiente Multi-Tenant)"
+        API -->|HTTPS| ECS[Amazon ECS / Fargate<br/>Holocron UI]
+        
+        subgraph "🧠 Holocron AgentCore Runtime"
+            ECS --> Orchestrator{AgentCore<br/>Orchestrator}
+            Orchestrator <-->|Isolamento Estrito| Memory[(Amazon DynamoDB<br/>FileSessionManager)]
+            Orchestrator -->|invoke_model| Bedrock[Amazon Bedrock<br/>Claude 3.5]
+        end
+        
+        subgraph "🛠️ Microserviços de Auditoria (MCP)"
+            Orchestrator -->|Execução Autônoma| Lambda[AWS Lambda<br/>Boto3 Scanners]
+            Lambda -->|Auditoria de ACLs| S3[(Amazon S3 Buckets)]
+            Lambda -->|Auditoria de Políticas| IAM[AWS IAM Roles]
+        end
+        
+        subgraph "📊 Governança e Observabilidade"
+            Bedrock -.->|Consumo e Latência| CW[Amazon CloudWatch]
+            Lambda -.->|Trilhas de Execução| CT[AWS CloudTrail]
+        end
     end
 
-    style Admin fill:#112240,stroke:#64ffda,stroke-width:2px,color:#fff
-    style Core fill:#0a192f,stroke:#00d2ff,stroke-width:2px,color:#fff
-    style Bedrock fill:#ff9900,stroke:#333,stroke-width:2px,color:#fff
+    classDef aws fill:#FF9900,stroke:#232F3E,stroke-width:2px,color:#232F3E,font-weight:bold;
+    classDef container fill:#232F3E,stroke:#FF9900,stroke-width:2px,color:#FFF;
+    classDef db fill:#3F8624,stroke:#232F3E,stroke-width:2px,color:#FFF;
+    classDef lambda fill:#D86613,stroke:#232F3E,stroke-width:2px,color:#FFF;
+    classDef bedrock fill:#00A4A6,stroke:#232F3E,stroke-width:2px,color:#FFF;
+    
+    class Cognito,API aws;
+    class ECS,Orchestrator container;
+    class Memory,S3,IAM db;
+    class Lambda lambda;
+    class Bedrock bedrock;
+    class CW,CT aws;
 ```
 
 ## 🚀 Diferenciais de Mercado (Business Value)
