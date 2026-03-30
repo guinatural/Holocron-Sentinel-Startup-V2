@@ -1,10 +1,9 @@
 import boto3
+import datetime
 from strands.tools import tool
 
-# -----------------
-# CORE TOOLS (AgentCore Tools)
-# These Boto3 scripts empower the Agent with real AWS capabilities.
-# -----------------
+def get_timestamp():
+    return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 @tool(
     name="auditar_permissoes_s3",
@@ -12,13 +11,11 @@ from strands.tools import tool
 )
 def auditar_permissoes_s3() -> str:
     """
-    MCP (Model Context Protocol) Tool for Boto3 S3 Scanner
-    
-    Operates in 'Read-Only' mode for architectural safety.
-    Maps infrastructure at runtime to feed the AI model's reasoning.
-    Focused on Preventive Compliance for regulations like LGPD/GDPR.
+    MCP (Model Context Protocol) Tool for Boto3 S3 Scanner.
+    Professional security auditing logic with SOC-level logging.
     """
-    print("\n[Boto3 Scanner] Connecting to client's AWS S3 infrastructure... 🔍")
+    print(f"\n[AUDIT LOG - {get_timestamp()}] 🛡️ INITIALIZING CLOUD SECURITY SCAN...")
+    print(f"[{get_timestamp()}] 🔍 CONNECTION: Establishing Boto3 session with AWS S3...")
     s3 = boto3.client('s3')
     
     try:
