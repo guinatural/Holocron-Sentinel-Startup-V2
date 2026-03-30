@@ -3,6 +3,7 @@ import os
 from strands.models.bedrock import BedrockModel
 from strands.agent import Agent
 from strands.session.file_session_manager import FileSessionManager
+from fpdf import FPDF
 
 import scanners  # 0. Import Custom Tools (Boto3 Scanners)
 
@@ -34,7 +35,7 @@ class HolocronSentinelCore:
         self.agent = Agent(
             model=self.ai_model,
             session_manager=self.session_manager,
-            tools=[scanners.auditar_permissoes_s3], # <<< MCP Execution Magic
+            tools=[scanners.auditar_permissoes_s3, scanners.auditar_mfa_iam], # <<< MCP Execution Magic
             system_prompt=(
                 "You are Holocron Sentinel V2.0, an AWS Multi-Tenant Security Auditor. "
                 "Always use integrated tools to scan for active security flaws. "
@@ -47,8 +48,35 @@ class HolocronSentinelCore:
     def analyze(self, prompt: str):
         print(f"\n[Auditing infrastructure for {self.tenant_id}...] ⚙️")
         response = self.agent(prompt)
-        print(f"\n🛡️ HOLOCRON REPORT:\n{response.message['content'][0]['text']}\n")
+        content = response.message['content'][0]['text']
+        print(f"\n🛡️ HOLOCRON REPORT:\n{content}\n")
+        
+        # Opcional: Salva como PDF se for uma auditoria real
+        if "audite" in prompt.lower() or "report" in prompt.lower():
+            self.generate_pdf_report(content)
+            
         print("-" * 50)
+        return content
+
+    def generate_pdf_report(self, text_content: str):
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font("Arial", 'B', 16)
+        pdf.cell(200, 10, txt="HOLOCRON SENTINEL V2 - COMPLIANCE REPORT", ln=True, align='C')
+        pdf.ln(10)
+        
+        pdf.set_font("Arial", size=12)
+        pdf.cell(200, 10, txt=f"Tenant ID: {self.tenant_id}", ln=True)
+        pdf.cell(200, 10, txt=f"Date: {os.path.basename(str(os.getcwd()))}", ln=True)
+        pdf.ln(5)
+        
+        pdf.set_font("Arial", size=11)
+        # Handle unicode or non-latin chars for simple PDF
+        pdf.multi_cell(0, 10, txt=text_content.encode('latin-1', 'replace').decode('latin-1'))
+        
+        filename = f"Report_{self.tenant_id}.pdf"
+        pdf.output(filename)
+        print(f"📄 PDF Report Generated: {filename}")
 
 if __name__ == "__main__":
     # Core Isolation & Multi-tenant Test

@@ -48,6 +48,47 @@ def auditar_permissoes_s3() -> str:
     else:
         return "✅ Full Compliance: All S3 buckets have 'Block Public Access' active."
 
-# Você poderá criar outras funções aqui depois como:
-# @tool(name="auditar_mfa_iam")
-# @tool(name="auditar_portas_ec2")
+@tool(
+    name="auditar_mfa_iam",
+    description="Inspeciona usuários IAM em busca de falhas críticas de segurança, como ausência de MFA (Multi-Factor Authentication) ou uso de chaves de acesso (Access Keys) permanentes. Essencial para Conformidade LGPD."
+)
+def auditar_mfa_iam() -> str:
+    """
+    Inspeciona a segurança de identidade (Identity Security) via Boto3 IAM.
+    Focado em detectar ausência de MFA e riscos de vulto em credenciais root.
+    """
+    print(f"\n[AUDIT LOG - {get_timestamp()}] 🛡️ INICIANDO SCANNER DE IDENTIDADE (IAM)...")
+    iam = boto3.client('iam')
+    
+    try:
+        users = iam.list_users().get('Users', [])
+    except Exception as e:
+        return f"Erro Crítico de Acesso: Falha ao listar usuários IAM. {e}"
+
+    usuarios_sem_mfa = []
+    usuarios_com_keys = []
+
+    for user in users:
+        username = user['UserName']
+        
+        # 1. Checa MFA
+        mfa = iam.list_mfa_devices(UserName=username).get('MFADevices', [])
+        if not mfa:
+            usuarios_sem_mfa.append(username)
+            
+        # 2. Checa Access Keys
+        keys = iam.list_access_keys(UserName=username).get('AccessKeyMetadata', [])
+        if keys:
+            usuarios_com_keys.append(username)
+
+    report = []
+    if usuarios_sem_mfa:
+        report.append(f"🔴 CRÍTICO: {len(usuarios_sem_mfa)} usuários SEM MFA: {', '.join(usuarios_sem_mfa)}.")
+    
+    if usuarios_com_keys:
+        report.append(f"🟠 ALERTA: {len(usuarios_com_keys)} usuários possuem Access Keys permanentes (Risco de Vazamento).")
+
+    if not report:
+        return "✅ Conformidade IAM: Todos os usuários possuem MFA ativo e políticas de acesso seguras."
+    
+    return " \n".join(report)

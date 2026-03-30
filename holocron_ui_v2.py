@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import plotly.graph_objects as go
 
 # Adicionamos a pasta atual ao caminho para que o Streamlit enxergue o main.py e scanners.py
 import sys
@@ -28,15 +29,49 @@ with st.sidebar:
     st.markdown("<p class='sidebar-text'>Selecione para qual empresa o DPO está auditando a nuvem no momento.</p>", unsafe_allow_html=True)
     
     empresa_selecionada = st.selectbox(
-        "Empresa (Tenant ID):",
-        ["cliente_alpha_xyz", "cliente_beta_999", "sua_startup_123"]
+        "Auditando Tenant:",
+        ["Alpha S.A. (Global)", "Beta Pay Systems (Fintech)", "Unicorn Digital (Scale-up)"]
     )
     
     st.markdown("---")
     st.markdown("### 🛠️ Scanners Ativos")
     st.checkbox("Scanner S3 Boto3", value=True, disabled=True)
-    st.checkbox("Scanner IAM", value=False, disabled=True)
-    st.checkbox("Memória AgentCore", value=True, disabled=True)
+    st.checkbox("Scanner IAM Identity", value=True, disabled=True)
+    st.checkbox("AgentCore Memory", value=True, disabled=True)
+
+    # Gráfico de Gauge (Medidor de Risco)
+    st.markdown("---")
+    st.markdown("### 📊 Compliance Score (Risk Map)")
+    
+    score_map = {
+        "Alpha S.A. (Global)": 98, 
+        "Beta Pay Systems (Fintech)": 42, 
+        "Unicorn Digital (Scale-up)": 15
+    }
+    score = score_map.get(empresa_selecionada, 50)
+    
+    fig = go.Figure(go.Indicator(
+        mode = "gauge+number",
+        value = score,
+        domain = {'x': [0, 1], 'y': [0, 1]},
+        title = {'text': "Compliance Score", 'font': {'size': 18}},
+        gauge = {
+            'axis': {'range': [None, 100], 'tickwidth': 1, 'tickcolor': "white"},
+            'bar': {'color': "#00d2ff"},
+            'bgcolor': "rgba(0,0,0,0)",
+            'borderwidth': 2,
+            'bordercolor': "gray",
+            'steps': [
+                {'range': [0, 50], 'color': 'red'},
+                {'range': [50, 80], 'color': 'yellow'},
+                {'range': [80, 100], 'color': 'green'}],
+            'threshold': {
+                'line': {'color': "white", 'width': 4},
+                'thickness': 0.75,
+                'value': score}}))
+    
+    fig.update_layout(paper_bgcolor='rgba(0,0,0,0)', font={'color': "white", 'family': "Arial"}, height=250)
+    st.plotly_chart(fig, use_container_width=True)
 
 # -----------------
 # INICIALIZAÇÃO DO NÚCLEO HOLOCRON V2
@@ -47,7 +82,13 @@ def carregar_motor_por_empresa(tenant_id):
     return HolocronSentinelCore(tenant_id=tenant_id)
 
 # Carrega o núcleo dinamicamente toda vez que a Empresa na barra lateral muda
-motor_ia = carregar_motor_por_empresa(empresa_selecionada)
+id_map = {
+    "Alpha S.A. (Global)": "alpha_global",
+    "Beta Pay Systems (Fintech)": "beta_fintech",
+    "Unicorn Digital (Scale-up)": "unicorn_scaleup"
+}
+tenant_id = id_map.get(empresa_selecionada, "default_tenant")
+motor_ia = carregar_motor_por_empresa(tenant_id)
 
 # -----------------
 # TELA PRINCIPAL (CHAT)
