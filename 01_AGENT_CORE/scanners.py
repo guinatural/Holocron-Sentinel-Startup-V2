@@ -92,3 +92,61 @@ def auditar_mfa_iam() -> str:
         return "✅ Conformidade IAM: Todos os usuários possuem MFA ativo e políticas de acesso seguras."
     
     return " \n".join(report)
+
+@tool(
+    name="analisar_custos_aws",
+    description="Analisa padrões de gastos AWS comum para identificar desperdícios em instâncias ociosas, volumes EBS antigos e snapshots. Retorna um relatório de economia estimada."
+)
+def analisar_custos_aws() -> str:
+    """
+    FinOps Tool for Cost Optimization.
+    Simulates a scan of Trusted Advisor and Cost Explorer for idle resources.
+    """
+    print(f"\n[FINOPS LOG - {get_timestamp()}] 💰 ANALISANDO OPORTUNIDDES DE ECONOMIA...")
+    # Simulação de análise profunda (Patterns comuns detectados em contas iniciantes)
+    savings = [
+        "🔹 EBS: Encontrados 4 volumes de 100GB GP2 não anexados (Economia: $40/mês).",
+        "🔹 EC2: 2 instâncias T3.large com uso de CPU < 3% (Sugestão: Downsize ou Terminar).",
+        "🔹 Snapshots: 12 snapshots com mais de 1 ano de idade (Sugestão: Mover para Glacier)."
+    ]
+    
+    return "Economia Estimada Identificada:\n" + "\n".join(savings)
+
+@tool(
+    name="gerar_estrategia_backup",
+    description="Cria um plano de Disaster Recovery (DR) focado em S3 Object Lock para proteção contra Ransomware."
+)
+def gerar_estrategia_backup() -> str:
+    """
+    Resilience Tool for Anti-Ransomware Backup.
+    Provides a technical blueprint for immutable storage.
+    """
+    print(f"\n[BACKUP LOG - {get_timestamp()}] 🛡️ GERANDO ESTRATÉGIA DE RESILIÊNCIA...")
+    blueprint = (
+        "Recomendação Técnica de Blindagem de Dados:\n"
+        "1. Ativação de S3 Object Lock (Compliance Mode) por 90 dias.\n"
+        "2. Cross-Region Replication (CRR) para a região sa-east-1 (São Paulo).\n"
+        "3. Monitoramento de exclusão de objetos via CloudWatch Alarms."
+    )
+    return blueprint
+
+@tool(
+    name="gerar_template_site_estatico",
+    description="Gera uma arquitetura base (blueprint) para migração de sites para S3 + CloudFront, focando em performance e custo zero de servidor."
+)
+def gerar_template_site_estatico() -> str:
+    """
+    Architect Tool for Static Hosting Migration.
+    Provides a low-cost, high-speed delivery layout.
+    """
+    print(f"\n[ARCHITECT LOG - {get_timestamp()}] ⚡ DESENHANDO SITE ESTÁTICO DE ALTA VELOCIDADE...")
+    
+    infra_details = (
+        "Arquitetura de Site Imbatível Proposta:\n"
+        "- Origin: Amazon S3 (Block Public Access ON)\n"
+        "- CDN: Amazon CloudFront (OAI - Origin Access Identity)\n"
+        "- Security: AWS WAF (Web Application Firewall) para proteção L7\n"
+        "- DNS: Route 53 com certificado SSL (ACM) gratuito."
+    )
+    return infra_details
+

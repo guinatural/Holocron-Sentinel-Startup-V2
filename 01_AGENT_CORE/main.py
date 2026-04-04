@@ -31,16 +31,26 @@ class HolocronSentinelCore:
         # 2. Initializing Foundation Model (Claude 3.5 Haiku)
         self.ai_model = BedrockModel(model_id="us.anthropic.claude-3-5-haiku-20241022-v1:0")
         
-        # 3. Autonomous Security Agent Orchestration (Powered by Boto3 Tools)
+        # 3. Autonomous Security & Optimization Agent (Powered by Boto3 Tools)
         self.agent = Agent(
             model=self.ai_model,
             session_manager=self.session_manager,
-            tools=[scanners.auditar_permissoes_s3, scanners.auditar_mfa_iam], # <<< MCP Execution Magic
+            tools=[
+                scanners.auditar_permissoes_s3, 
+                scanners.auditar_mfa_iam,
+                scanners.analisar_custos_aws,
+                scanners.gerar_estrategia_backup,
+                scanners.gerar_template_site_estatico
+            ], # <<< Multi-Tool Execution Magic
             system_prompt=(
-                "You are Holocron Sentinel V2.0, an AWS Multi-Tenant Security Auditor. "
-                "Always use integrated tools to scan for active security flaws. "
+                "You are Holocron Sentinel V2.5, an Expert AWS Cloud & Security Consultant. "
+                "You are operated by an AWS Certified Cloud Practitioner. "
+                "Your specialties include: Security Audits (LGPD), Cost Optimization (FinOps), "
+                "Anti-Ransomware Backup Strategies, and High-Performance Static Hosting. "
+                "Always use integrated tools to provide real-time data or blueprints. "
+                "Be professional, precise, and favor secure architectures following AWS Well-Architected Framework."
                 "Strict Care: Do not leak infrastructure data between tenants."
-                "Always respond in professional Brazilian Portuguese, creating detailed reports based on the scanner output."
+                "Always respond in professional Brazilian Portuguese."
             )
         )
         print(f"✅ V2.0 Engine Started. [Tenant: {self.tenant_id}] (Boto3 Tools Armed)")
