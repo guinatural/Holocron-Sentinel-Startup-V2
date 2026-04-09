@@ -67,4 +67,4 @@ cd "C:\Users\barre\AWS-reStart-Compliance-Portfolio\AWS-re-Start\P - Holocron-Se
 3. **NARRATIVA:** *"Código limpo, seguro e pronto para produção."*
 
 ---
-🏆 **Dica Extra:** Se possível, narre o vídeo com calma ou coloque legendas épicas destacando: **"Arquitetura AWS + I.A. Generativa + LGPD Compliance"**.
+
