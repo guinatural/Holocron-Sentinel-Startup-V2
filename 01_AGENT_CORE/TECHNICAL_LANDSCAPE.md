@@ -61,5 +61,57 @@ For each scenario, use the following **Prompting Templates** to ensure the "Secr
 2.  **No Leaks:** This directory (`01_AGENT_CORE`) must NEVER be part of the public GitHub showcase.
 3.  **Transparency:** Inform clients that "automated diagnostic tools" are used for 100% precision, but the agent's internal logic is proprietary intellectual property.
 
+## 📅 Planejamento Ágil: Backlog & Sprints
+
+**Metodologia:** Scrum Adaptado (Sprints de 1 Semana)  
+**Ferramenta de Gestão:** GitHub Projects / Trello
+
 ---
+
+### 📌 Product Backlog (Priorizado)
+
+#### Épico 1: Governança e Segurança (Core)
+1.  **[Alta]** Configurar AWS Organizations e separar contas (Prod/Audit).
+2.  **[Alta]** Implementar Bucket S3 com bloqueio de acesso público e criptografia.
+3.  **[Alta]** Definir Policies IAM para segregação de funções (Admin vs Auditor).
+4.  **[Média]** Ativar CloudTrail Multi-Region.
+
+#### Épico 2: Monitoramento e Resposta
+5.  **[Alta]** Configurar AWS Config para monitorar buckets não criptografados.
+6.  **[Média]** Criar Alertas SNS para alterações no IAM.
+7.  **[Baixa]** Dashboard CloudWatch para volumetria de logs.
+
+#### Épico 3: Portal de Conformidade (Fase 2)
+8.  **[Baixa]** Desenhar arquitetura Serverless para Portal do Titular.
+9.  **[Baixa]** API Gateway Mock para receber pedidos de exclusão.
+
+---
+
+### 🏃 Sprint Planning
+
+#### Sprint 1: Fundação de Segurança (Concluída)
+**Objetivo:** Garantir que o ambiente de armazenamento e identidade esteja 100% compliance com o Art. 46 da LGPD.
+
+| ID | Tarefa | Status |
+|----|--------|--------|
+| T-01 | Desenho da Arquitetura de Rede (VPC) | ✅ Done |
+| T-02 | Configuração do Bucket "Data Lake" (S3) | 🚧 In Progress |
+| T-03 | Criação de Grupos IAM e MFA Enforcement | 🛠️ **Code Ready** |
+| T-04 | Documentação de Requisitos (RF/RNF) | ✅ Done |
+
+#### Sprint 2: Auditoria e Evidência (Atual)
+**Objetivo:** Implementar os "olhos" do sistema (Logs e Config Rules) para gerar o relatório final.
+
+| ID | Tarefa | Status |
+|----|--------|--------|
+| T-05 | Ativar CloudTrail e validar logs no S3 | 🛠️ **Code Ready** |
+| T-06 | Criar Regras do AWS Config (Required Tags) | 📝 To Do |
+| T-07 | Simular Incidente (Acesso não autorizado) | 📝 To Do |
+| T-08 | Montar Apresentação Final (Pitch) | ✅ Done |
+
+---
+
+## 📸 Evidência de Gestão
+> *Nota para Portfólio: Capturar print do Board Kanban demonstrando a evolução das Sprints e a maturidade da gestão ágil.*
+
 *Powered by AWS certified mastery and AI-driven precision.*

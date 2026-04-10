@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Gig Cover Guilherme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            width: 1280px; 
+            height: 769px; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 20px solid #ff9900;
+        }
+
+        .content {
+            margin-left: 80px;
+            max-width: 650px;
+            z-index: 2;
+        }
+
+        .badge-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            width: 120px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(255,153,0,0.3));
+        }
+
+        .holocron-logo {
+            font-size: 1.2rem;
+            color: #ff9900;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            background: rgba(255, 153, 0, 0.1);
+            border: 1px solid #ff9900;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            color: #ff9900;
+            font-weight: 600;
+        }
+
+        .person-container {
+            position: relative;
+            height: 100%;
+            width: 500px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+
+        .person-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,153,0,0.15) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .profile-pic {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+            mask-image: linear-gradient(to top, transparent 0%, black 20%);
+            z-index: 2;
+        }
+
+        .floating-label {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+            background: white;
+            color: #0f172a;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-weight: 800;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 3;
+            font-size: 1.4rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="badge-container">
+            <img src="https://images.credly.com/images/00bc0506-614a-4933-911e-72782e352541/AWS-CloudPractitioner-2020.png" class="badge" alt="AWS Cloud Practitioner">
+            <div class="holocron-logo">Holocron Sentinel V2</div>
+        </div>
+        <h1>Deployment<br>On AWS</h1>
+        <div class="features">
+            <div class="feature-item">SSL Secure</div>
+            <div class="feature-item">High Performance</div>
+            <div class="feature-item">Compliance Ready</div>
+        </div>
+    </div>
+
+    <div class="person-container">
+        <div class="person-bg"></div>
+        <img src="C:/Users/barre/.gemini/antigravity/brain/f6b8e772-b215-4f61-aeca-8c70e3163019/media__1775332175487.png" class="profile-pic" alt="Guilherme">
+        <div class="floating-label">Guilherme B.</div>
+    </div>
+</body>
+</html>

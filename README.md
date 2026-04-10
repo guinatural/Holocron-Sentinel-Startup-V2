@@ -20,19 +20,24 @@ This repository is organized into 4 distinct pillars to ensure maximum clarity, 
 > **Your Commercial Identity.** This folder contains the customer-facing documentation, case studies, and the [**Service-to-Lab Mapping**](./02_PUBLIC_SHOWCASE/SERVICE_MAPPING.md) that proves how academic knowledge solves real business problems.
 
 ### [📁 03_BUSINESS_DESK (STRATEGY)](./03_BUSINESS_DESK/)
-> **The Sales Office.** Scripts, Bidding Guides, and the [**5-Day Revenue Plan**](./03_BUSINESS_DESK/CONFIRMACAO_5_DIAS_AGENDA_PRONTA.md) to launch a freelance career in 120 hours.
+> **The Sales Office.** Scripts, Bidding Guides, and the [**Master Plan**](./03_BUSINESS_DESK/MASTER_PLAN_FREELANCER_AWS.md) to launch a high-ticket freelance career.
 
 ### [📁 04_AWS_RESTART_LABS (ACADEMIC EVIDENCE)](./04_AWS_RESTART_LABS/)
 > **The Technical Proof.** Raw, hands-on evidence of every lab performed during certification.
 
 ---
 
-## 🚀 Vision: Certification + Automation = Results
-The Holocron ecosystem proves that an **AWS Certified Cloud Practitioner** armed with advanced **Generative AI Automation** can deliver results faster, cheaper, and more securely than traditional, legacy cloud consultants.
+## 📈 Roadmap: The Path to AWS Developer Associate
+The Holocron ecosystem is evolving. This project now tracks the journey toward the **DVA-C02** certification:
+- [x] AWS Certified Cloud Practitioner
+- [ ] AWS Certified Developer – Associate (In Progress 🚀)
+- [ ] Serverless SaaS Transition (Lambda & DynamoDB)
 
-*   **Security:** Deep scans based on LGPD compliance.
-*   **Cost:** FinOps strategies for immediate ROI.
-*   **Infrastructure:** Repeatable blueprints for lightning-fast deployments.
+## 🚀 Vision: Certification + Automation = Results
+The Holocron ecosystem proves that an **AWS Certified Professional** armed with advanced **Generative AI Automation** can deliver results faster and more securely.
+- **Security:** Deep scans using Boto3 + Bedrock AI for LGPD compliance.
+- **Cost:** Intelligent FinOps detection of orphaned resources.
+- **Infrastructure:** Pro-deployment blueprints for modern web apps.
 
 ---
 

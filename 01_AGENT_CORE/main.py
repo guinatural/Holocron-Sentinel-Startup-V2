@@ -38,10 +38,9 @@ class HolocronSentinelCore:
             tools=[
                 scanners.auditar_permissoes_s3, 
                 scanners.auditar_mfa_iam,
-                scanners.analisar_custos_aws,
-                scanners.gerar_estrategia_backup,
-                scanners.gerar_template_site_estatico
-            ], # <<< Multi-Tool Execution Magic
+                scanners.analisar_custos_aws_real,
+                scanners.verificar_seguranca_network
+            ], # <<< Ferramentas Reais AWS Ativadas
             system_prompt=(
                 "You are Holocron Sentinel V2.5, an Expert AWS Cloud & Security Consultant. "
                 "You are operated by an AWS Certified Cloud Practitioner. "
