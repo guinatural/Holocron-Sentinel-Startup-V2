@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  localstack:
+    image: localstack/localstack:latest
+    ports:
+      - "4566:4566"
+      - "4571:4571"
+    environment:
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+      - LAMBDA_EXECUTOR=docker
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+    volumes:
+      - "${TMPDIR:-.}/localstack:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+      - wayfinder-network
+
+  dynamodb-local:
+    image: amazon/dynamodb-local:latest
+    ports:
+      - "8000:8000"
+    command: "-jar DynamoDBLocal.jar -sharedDb"
+    networks:
+      - wayfinder-network
+
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - AWS_REGION=us-east-1
+      - AWS_ENDPOINT_URL_S3=http://localstack:4566
+      - AWS_ENDPOINT_URL_RDS=http://localstack:4566
+      - AWS_ENDPOINT_URL_IAM=http://localstack:4566
+      - AWS_ENDPOINT_URL_DYNAMODB=http://dynamodb-local:8000
+      - NODE_ENV=development
+    depends_on:
+      - localstack
+      - dynamodb-local
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - wayfinder-network
+
+networks:
+  wayfinder-network:
+    driver: bridge
