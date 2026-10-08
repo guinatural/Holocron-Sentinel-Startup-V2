@@ -1,29 +1,29 @@
 # 🌌 HOLOCRON: The Expert AWS Consultant Ecosystem
-## AWS Certified Cloud Practitioner Portfolio & Global Agency Engine
+## Double AWS Certified (Cloud & AI) Portfolio & Global Agency Engine
 
-[![AWS Certified](https://img.shields.io/badge/AWS-Certified%20Cloud%20Practitioner-FF9900?logo=amazon-aws)](https://aws.amazon.com/certification/certified-cloud-practitioner/)
-[![GitHub Labs](https://img.shields.io/badge/Academic-AWS%20re:Start%20Labs-blue?logo=github)](./04_AWS_RESTART_LABS/)
+[![AWS Certified AI Practitioner](https://img.shields.io/badge/AWS%20Certified-AI%20Practitioner-FF9900?logo=amazon-aws)](https://www.credly.com/badges/7da46949-3e21-4d3f-beb4-8a5bbdb7045a/public_url)
+[![AWS Certified Cloud Practitioner](https://img.shields.io/badge/AWS%20Certified-Cloud%20Practitioner-FF9900?logo=amazon-aws)](https://www.credly.com/badges/9f28dc2a-d9b8-4774-ab9f-dfe3a8324ff0/public_url)
+[![Anthropic Claude](https://img.shields.io/badge/Anthropic-Claude%20in%20Bedrock-D97757?logo=anthropic)](https://verify.skilljar.com/c/hs2vptejmuk5)
 [![Status](https://img.shields.io/badge/Status-Market%20Ready-brightgreen)](#)
 
 Welcome to the **Holocron Ecosystem**. This project is the culmination of technical excellence in the **AWS re/Start 2026** program, transformed into a high-performance freelance consulting machine focused on Security, Compliance (LGPD), and Cost Optimization.
 
 ---
 
-## 🏛️ Project Pillars (Folder Structure)
+## 🏆 Certifications & Specializations
 
-This repository is organized into 4 distinct pillars to ensure maximum clarity, security, and professionalism:
+This ecosystem is built on a foundation of verified expertise in Cloud Infrastructure and Generative AI:
 
-### [📁 01_AGENT_CORE (SECRET PROPRIETARY CODY)](./01_AGENT_CORE/)
-> **The Secret Sauce.** This is the technical infrastructure built with **AWS AgentCore (Strands SDK)** and **Amazon Bedrock**. It automates 95% of consulting technical labor (Audits, S3 Scanning, Cost analysis) using autonomous AI agents.
-
-### [📁 02_PUBLIC_SHOWCASE (THE VITRINE)](./02_PUBLIC_SHOWCASE/)
-> **Your Commercial Identity.** This folder contains the customer-facing documentation, case studies, and the [**Service-to-Lab Mapping**](./02_PUBLIC_SHOWCASE/SERVICE_MAPPING.md) that proves how academic knowledge solves real business problems.
-
-### [📁 03_BUSINESS_DESK (STRATEGY)](./03_BUSINESS_DESK/)
-> **The Sales Office.** Scripts, Bidding Guides, and the [**Master Plan**](./03_BUSINESS_DESK/MASTER_PLAN_FREELANCER_AWS.md) to launch a high-ticket freelance career.
-
-### [📁 04_AWS_RESTART_LABS (ACADEMIC EVIDENCE)](./04_AWS_RESTART_LABS/)
-> **The Technical Proof.** Raw, hands-on evidence of every lab performed during certification.
+*   **[AWS Certified AI Practitioner (AIF-C01)](https://www.credly.com/badges/7da46949-3e21-4d3f-beb4-8a5bbdb7045a/public_url)** - *Issued Jul 2026*
+    *   Validation of AI/ML fundamentals and Generative AI applied to business needs on AWS.
+*   **[AWS Certified Cloud Practitioner (CLF-C02)](https://www.credly.com/badges/9f28dc2a-d9b8-4774-ab9f-dfe3a8324ff0/public_url)** - *Issued Feb 2026*
+    *   Core cloud architecture, security, and FinOps.
+*   **[Claude in Amazon Bedrock (Anthropic Academy)](https://verify.skilljar.com/c/hs2vptejmuk5)** - *Issued Apr 2026*
+    *   Advanced RAG pipelines, AI Agents, Evaluation Frameworks, and MCP (Model Context Protocol) architecture.
+*   **Amazon Bedrock AgentCore (AWS)** - *Issued Mar 2026*
+    *   Building production-ready autonomous agents, containerized sandboxes, and end-to-end observability.
+*   **[AWS re/Start Graduate](https://www.credly.com/badges/246b689b-35c3-4d20-af3f-29ca47418822/linked_in_profile)** - *Issued Jan 2026*
+    *   Intensive cloud computing and Linux/Python engineering program.
 
 ---
 
@@ -31,7 +31,7 @@ This repository is organized into 4 distinct pillars to ensure maximum clarity, 
 
 Para lidar com a complexidade de um sistema corporativo real, o ecossistema Holocron foi segmentado em microsserviços e domínios de repositório, seguindo as melhores práticas de Engenharia de Software (Desacoplamento e Independência de Deploy).
 
-```mermaid
+\\\mermaid
 flowchart TD
     subgraph "Hub Central (Você está aqui)"
         V2[Holocron-Sentinel-Startup-V2\nGovernance & Documentation]
@@ -53,10 +53,10 @@ flowchart TD
     V2 -.->|Provas de Conceito Acadêmicas| AgentCore
     Career <-->|Consome Engine de IA| AgentCore
     Wayfinder -.->|Auditoria Automática| Career
-```
+\\\
 
 ### 🛡️ Padrões Enterprise do Ecossistema
-1. **Governança Multirepo:** Separação estrita entre o produto cliente (`Career-AI`), o motor de IA (`AgentCore`) e ferramentas de compliance interna (`Wayfinder`).
+1. **Governança Multirepo:** Separação estrita entre o produto cliente (\Career-AI\), o motor de IA (\AgentCore\) e ferramentas de compliance interna (\Wayfinder\).
 2. **Infraestrutura Cloud-Native:** Dependências pesadas em Serverless, AWS CDK (IaC) e arquiteturas orientadas a eventos (EventBridge).
 3. **Segurança (Zero Trust):** Rastreamento de IA e LGPD integrados desde o design (Privacy by Design).
 
@@ -65,6 +65,7 @@ flowchart TD
 ## 📈 Roadmap: The Path to AWS Developer / Architect
 The Holocron ecosystem is evolving. This project now tracks the journey toward the **DVA-C02** and **SAA-C03** certifications:
 - [x] AWS Certified Cloud Practitioner
+- [x] AWS Certified AI Practitioner
 - [ ] AWS Certified Developer – Associate (In Progress 🚀)
 - [ ] AWS Certified Solutions Architect (In Progress 🚀)
 - [x] Serverless SaaS Transition (Consolidated via Holocron Career AI)
@@ -78,8 +79,9 @@ The Holocron ecosystem proves that an **AWS Certified Professional** armed with 
 ---
 
 ## 👤 Author
-**Guilherme Gomes**  
-AWS Certified | Cloud Security Auditor | AI Solutions Engineer
+**Guilherme Barreto Gomes**  
+[LinkedIn Profile](https://www.linkedin.com/in/guillherme-barretog/)  
+AWS Certified AI & Cloud Engineer | FinOps | MCP Architecture
 
 ---
 *Built with ❤️ and Precision. Secure your future in the Cloud today.*
