@@ -27,17 +27,53 @@ This repository is organized into 4 distinct pillars to ensure maximum clarity, 
 
 ---
 
-## 📈 Roadmap: The Path to AWS Developer Associate
-The Holocron ecosystem is evolving. This project now tracks the journey toward the **DVA-C02** certification:
+## 🌐 O Ecossistema Holocron (Arquitetura Distribuída)
+
+Para lidar com a complexidade de um sistema corporativo real, o ecossistema Holocron foi segmentado em microsserviços e domínios de repositório, seguindo as melhores práticas de Engenharia de Software (Desacoplamento e Independência de Deploy).
+
+```mermaid
+flowchart TD
+    subgraph "Hub Central (Você está aqui)"
+        V2[Holocron-Sentinel-Startup-V2\nGovernance & Documentation]
+    end
+
+    subgraph "SaaS Product Domain"
+        Career[Holocron-Career-AI\nNext.js + FastAPI + RAG]
+    end
+
+    subgraph "AI & Analytics Domain"
+        AgentCore[Holocron-Sentinel-AWS-AgentCore\nBedrock + Boto3 Engine]
+    end
+
+    subgraph "Compliance Domain"
+        Wayfinder[Wayfinder-Cloud\nLGPD + AWS Config]
+    end
+
+    V2 -.->|Mapeamento Estratégico| Career
+    V2 -.->|Provas de Conceito Acadêmicas| AgentCore
+    Career <-->|Consome Engine de IA| AgentCore
+    Wayfinder -.->|Auditoria Automática| Career
+```
+
+### 🛡️ Padrões Enterprise do Ecossistema
+1. **Governança Multirepo:** Separação estrita entre o produto cliente (`Career-AI`), o motor de IA (`AgentCore`) e ferramentas de compliance interna (`Wayfinder`).
+2. **Infraestrutura Cloud-Native:** Dependências pesadas em Serverless, AWS CDK (IaC) e arquiteturas orientadas a eventos (EventBridge).
+3. **Segurança (Zero Trust):** Rastreamento de IA e LGPD integrados desde o design (Privacy by Design).
+
+---
+
+## 📈 Roadmap: The Path to AWS Developer / Architect
+The Holocron ecosystem is evolving. This project now tracks the journey toward the **DVA-C02** and **SAA-C03** certifications:
 - [x] AWS Certified Cloud Practitioner
 - [ ] AWS Certified Developer – Associate (In Progress 🚀)
-- [ ] Serverless SaaS Transition (Lambda & DynamoDB)
+- [ ] AWS Certified Solutions Architect (In Progress 🚀)
+- [x] Serverless SaaS Transition (Consolidated via Holocron Career AI)
 
 ## 🚀 Vision: Certification + Automation = Results
 The Holocron ecosystem proves that an **AWS Certified Professional** armed with advanced **Generative AI Automation** can deliver results faster and more securely.
 - **Security:** Deep scans using Boto3 + Bedrock AI for LGPD compliance.
-- **Cost:** Intelligent FinOps detection of orphaned resources.
-- **Infrastructure:** Pro-deployment blueprints for modern web apps.
+- **Cost (FinOps):** Intelligent detection of orphaned resources and strict AWS Budgets applied to AI Tokens.
+- **Infrastructure:** Pro-deployment blueprints for modern web apps using CDK/Terraform.
 
 ---
 
