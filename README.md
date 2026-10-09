@@ -1,87 +1,53 @@
-# HOLOCRON: The Expert AWS Consultant Ecosystem
-## Double AWS Certified (Cloud & AI) Portfolio & Global Agency Engine
+# Holocron Sentinel V2 — Governance & Documentation Hub
 
-[![AWS Certified AI Practitioner](https://img.shields.io/badge/AWS%20Certified-AI%20Practitioner-FF9900?logo=amazon-aws)](https://www.credly.com/badges/7da46949-3e21-4d3f-beb4-8a5bbdb7045a/public_url)
-[![AWS Certified Cloud Practitioner](https://img.shields.io/badge/AWS%20Certified-Cloud%20Practitioner-FF9900?logo=amazon-aws)](https://www.credly.com/badges/9f28dc2a-d9b8-4774-ab9f-dfe3a8324ff0/public_url)
-[![Anthropic Claude](https://img.shields.io/badge/Anthropic-Claude%20in%20Bedrock-D97757?logo=anthropic)](https://verify.skilljar.com/c/hs2vptejmuk5)
-[![Status](https://img.shields.io/badge/Status-Market%20Ready-brightgreen)](#)
+This repository is the documentation and governance hub for the Holocron ecosystem. It brings together project references, architecture notes, and portfolio materials; each project's implementation remains in its own repository.
 
-Welcome to the **Holocron Ecosystem**. This project is the culmination of technical excellence in the **AWS re/Start 2026** program, transformed into a high-performance freelance consulting machine focused on Security, Compliance (LGPD), and Cost Optimization.
+## The Holocron ecosystem
 
----
+| Project | Role | Repository |
+| --- | --- | --- |
+| **Wayfinder Cloud** | Cloud project | [guinatural/wayfinder-cloud](https://github.com/guinatural/wayfinder-cloud) |
+| **Holocron Sentinel AgentCore** | AgentCore engine | [guinatural/Holocron-Sentinel-AWS-AgentCore](https://github.com/guinatural/Holocron-Sentinel-AWS-AgentCore) |
+| **Holocron Sentinel V2** | Governance and documentation hub (this repository) | [guinatural/Holocron-Sentinel-Startup-V2](https://github.com/guinatural/Holocron-Sentinel-Startup-V2) |
+| **DocuSmart** | Strands-based project | [guinatural/docusmart-motor-strands](https://github.com/guinatural/docusmart-motor-strands) |
 
-## Certifications & Specializations
-
-This ecosystem is built on a foundation of verified expertise in Cloud Infrastructure and Generative AI:
-
-*   **[AWS Certified AI Practitioner (AIF-C01)](https://www.credly.com/badges/7da46949-3e21-4d3f-beb4-8a5bbdb7045a/public_url)** - *Issued Jul 2026*
-    *   Validation of AI/ML fundamentals and Generative AI applied to business needs on AWS.
-*   **[AWS Certified Cloud Practitioner (CLF-C02)](https://www.credly.com/badges/9f28dc2a-d9b8-4774-ab9f-dfe3a8324ff0/public_url)** - *Issued Feb 2026*
-    *   Core cloud architecture, security, and FinOps.
-*   **[Claude in Amazon Bedrock (Anthropic Academy)](https://verify.skilljar.com/c/hs2vptejmuk5)** - *Issued Apr 2026*
-    *   Advanced RAG pipelines, AI Agents, Evaluation Frameworks, and MCP (Model Context Protocol) architecture.
-*   **Amazon Bedrock AgentCore (AWS)** - *Issued Mar 2026*
-    *   Building production-ready autonomous agents, containerized sandboxes, and end-to-end observability.
-*   **[AWS re/Start Graduate](https://www.credly.com/badges/246b689b-35c3-4d20-af3f-29ca47418822/linked_in_profile)** - *Issued Jan 2026*
-    *   Intensive cloud computing and Linux/Python engineering program.
-
----
-
-## O Ecossistema Holocron (Arquitetura Distribuída)
-
-Para lidar com a complexidade de um sistema corporativo real, o ecossistema Holocron foi segmentado em microsserviços e domínios de repositório, seguindo as melhores práticas de Engenharia de Software (Desacoplamento e Independência de Deploy).
-
-\\\mermaid
+```mermaid
 flowchart TD
-    subgraph "Hub Central (Você está aqui)"
-        V2[Holocron-Sentinel-Startup-V2\nGovernance & Documentation]
-    end
+    Hub["Holocron Sentinel V2<br/>Governance &amp; Documentation"]
+    Wayfinder["Wayfinder Cloud"]
+    AgentCore["Holocron Sentinel AgentCore"]
+    DocuSmart["DocuSmart — Strands"]
 
-    subgraph "SaaS Product Domain"
-        Career[Holocron-Career-AI\nNext.js + FastAPI + RAG]
-    end
+    Hub -. "documents and governs" .-> Wayfinder
+    Hub -. "documents and governs" .-> AgentCore
+    Hub -. "documents and governs" .-> DocuSmart
+```
 
-    subgraph "AI & Analytics Domain"
-        AgentCore[Holocron-Sentinel-AWS-AgentCore\nBedrock + Boto3 Engine]
-    end
+## Repository guide
 
-    subgraph "Compliance Domain"
-        Wayfinder[Wayfinder-Cloud\nLGPD + AWS Config]
-    end
+- [AgentCore materials](./01_AGENT_CORE/)
+- [Public showcase](./02_PUBLIC_SHOWCASE/README.md)
+- [Business desk](./03_BUSINESS_DESK/)
+- [AWS re/Start labs](./04_AWS_RESTART_LABS/README.md)
 
-    V2 -.->|Mapeamento Estratégico| Career
-    V2 -.->|Provas de Conceito Acadêmicas| AgentCore
-    Career <-->|Consome Engine de IA| AgentCore
-    Wayfinder -.->|Auditoria Automática| Career
-\\\
+## Certifications & learning
 
-### Padrões Enterprise do Ecossistema
-1. **Governança Multirepo:** Separação estrita entre o produto cliente (\Career-AI\), o motor de IA (\AgentCore\) e ferramentas de compliance interna (\Wayfinder\).
-2. **Infraestrutura Cloud-Native:** Dependências pesadas em Serverless, AWS CDK (IaC) e arquiteturas orientadas a eventos (EventBridge).
-3. **Segurança (Zero Trust):** Rastreamento de IA e LGPD integrados desde o design (Privacy by Design).
+The linked credentials and learning milestones provide background for the technical materials in this hub:
 
----
+- [AWS Certified AI Practitioner (AIF-C01)](https://www.credly.com/badges/7da46949-3e21-4d3f-beb4-8a5bbdb7045a/public_url) — issued Jul 2026.
+- [AWS Certified Cloud Practitioner (CLF-C02)](https://www.credly.com/badges/9f28dc2a-d9b8-4774-ab9f-dfe3a8324ff0/public_url) — issued Feb 2026.
+- [Claude in Amazon Bedrock (Anthropic Academy)](https://verify.skilljar.com/c/hs2vptejmuk5) — issued Apr 2026.
+- [AWS re/Start Graduate](https://www.credly.com/badges/246b689b-35c3-4d20-af3f-29ca47418822/linked_in_profile) — issued Jan 2026.
 
-## Roadmap: The Path to AWS Developer / Architect
-The Holocron ecosystem is evolving. This project now tracks the journey toward the **DVA-C02** and **SAA-C03** certifications:
+### Learning roadmap
+
 - [x] AWS Certified Cloud Practitioner
 - [x] AWS Certified AI Practitioner
-- [ ] AWS Certified Developer – Associate (In Progress 🚀)
-- [ ] AWS Certified Solutions Architect (In Progress 🚀)
-- [x] Serverless SaaS Transition (Consolidated via Holocron Career AI)
-
-## Vision: Certification + Automation = Results
-The Holocron ecosystem proves that an **AWS Certified Professional** armed with advanced **Generative AI Automation** can deliver results faster and more securely.
-- **Security:** Deep scans using Boto3 + Bedrock AI for LGPD compliance.
-- **Cost (FinOps):** Intelligent detection of orphaned resources and strict AWS Budgets applied to AI Tokens.
-- **Infrastructure:** Pro-deployment blueprints for modern web apps using CDK/Terraform.
-
----
+- [ ] AWS Certified Developer – Associate (in progress)
+- [ ] AWS Certified Solutions Architect (in progress)
 
 ## Author
+
 **Guilherme Barreto Gomes**  
 [LinkedIn Profile](https://www.linkedin.com/in/guillherme-barretog/)  
-AWS Certified AI & Cloud Engineer | FinOps | MCP Architecture
-
----
-*Built with and Precision. Secure your future in the Cloud today.*
+AWS Cloud & AI | FinOps | MCP Architecture
